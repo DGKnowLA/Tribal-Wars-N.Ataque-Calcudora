@@ -1,5 +1,5 @@
 void main() {
-  ataque(0, 0);
+  ataque(360, 1);
 }
 
 void ataque(int tempoDoTrajeto, int unidadesAtacando) {
