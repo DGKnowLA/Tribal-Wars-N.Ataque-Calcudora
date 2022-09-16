@@ -1,16 +1,28 @@
-void main(){
-const trajetoTempoMinutos = 400;
-  const unidadesAtacandoValor = 2;
-  const lealdadeGanhaValor = ((trajetoTempoMinutos / 60) * 2);
-  var lealdadePerdidaValor = (unidadesAtacandoValor * 20);
-  var tempoPassado = trajetoTempoMinutos;
+void main() {
+  ataque(0, 0);
+}
 
-  var lealdadeAldeiaBase = 100;
-  lealdadeAldeiaBase - lealdadePerdidaValor;
-  while ((lealdadeAldeiaBase).floor() > 0) {
-    (tempoPassado = tempoPassado + (trajetoTempoMinutos * 2));
-    (lealdadeAldeiaBase = (lealdadeAldeiaBase + lealdadeGanhaValor).truncate());
-    (lealdadeAldeiaBase = (lealdadeAldeiaBase - lealdadePerdidaValor));
-  }
-  //ignore: avoid_print
-  print(tempoPassado);
+void ataque(int tempoDoTrajeto, int unidadesAtacando) {
+  const Map<String, double> valorPerdido = {
+    'Minimo': 20,
+    'Médio': 27.5,
+    "Máximo": 35
+  };
+
+  valorPerdido.forEach((key, value) {
+    double valorGanho = ((tempoDoTrajeto / 60) * 2);
+    double valorPerdidoPorAtaque = (unidadesAtacando * value);
+    int tempoPassado = tempoDoTrajeto;
+
+    double valorBase = 100;
+    while ((valorBase).floor() > 0) {
+      (tempoPassado = tempoPassado + (tempoDoTrajeto * 2));
+      (valorBase = (valorBase + valorGanho).truncate().toDouble());
+      (valorBase = (valorBase - valorPerdidoPorAtaque));
+    }
+
+    //ignore: avoid_print
+    print('Tempo $key Passado');
+    print(tempoPassado);
+  });
+}
