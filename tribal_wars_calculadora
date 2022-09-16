@@ -1,0 +1,16 @@
+void main(){
+const trajetoTempoMinutos = 400;
+  const unidadesAtacandoValor = 2;
+  const lealdadeGanhaValor = ((trajetoTempoMinutos / 60) * 2);
+  var lealdadePerdidaValor = (unidadesAtacandoValor * 20);
+  var tempoPassado = trajetoTempoMinutos;
+
+  var lealdadeAldeiaBase = 100;
+  lealdadeAldeiaBase - lealdadePerdidaValor;
+  while ((lealdadeAldeiaBase).floor() > 0) {
+    (tempoPassado = tempoPassado + (trajetoTempoMinutos * 2));
+    (lealdadeAldeiaBase = (lealdadeAldeiaBase + lealdadeGanhaValor).truncate());
+    (lealdadeAldeiaBase = (lealdadeAldeiaBase - lealdadePerdidaValor));
+  }
+  //ignore: avoid_print
+  print(tempoPassado);
